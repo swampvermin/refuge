@@ -1,0 +1,95 @@
+body {
+  font-family:'Helvetica', sans-serif;
+  color: rgb(40, 40, 40);
+  font-size: 12px;
+}
+
+nav {
+
+}
+
+a:link, a:visited{
+  color: rgb(0, 120, 191);
+  text-decoration:none;
+}
+a:hover{
+  font-style: italic;
+  color: black;
+}
+
+a:active{
+  font-weight: bold;
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+
+.menu li {
+  flex-grow: 1; 
+}
+
+.menu li:first-child {
+  flex-grow: 2; 
+}
+
+.menu a {
+
+  text-decoration: none;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    padding-left: 0px;
+    list-style: none;
+    font-family: Garamond;
+
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.mainGif{
+  max-width: 30%;
+  height: auto;
+  display: block;
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10%;
+
+}
+.pageHeading {
+  flex-grow: 2; /* Make heading flex item grow equally as menu items */
+  padding: 10px;
+  color: rgb(40, 40, 40);
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+
+.imageItem {
+  flex-basis: 25%; /* Adjust the width of each image item */
+  text-align: center;
+}
+
+.imageItem img {
+  max-width: 100%;
+  height: auto;
+}
+
+.imageItem p {
+  margin-top: 10px;
+}
