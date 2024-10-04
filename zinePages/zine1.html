@@ -2,18 +2,25 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="REFUGE">
+	<meta name="description" content="REFUGE vol 1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Refuge: A Collection of Urban Sanctuaries</title>
-	<link rel="stylesheet" type="text/css" href='style.css'>
+	<link rel="stylesheet" type="text/css" href='../style.css'>
 	<link rel="icon" href="icon.png">
 	<link rel="stylesheet" href="https://use.typekit.net/nyk3meg.css">
+
+	<!-- Include PDF.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.js"></script>
+<!-- Include PDF.js worker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.js"></script>
+
+
 </head>
 <body>
 
 	<nav>
     <ul class="menu">
-        <li><a href="index.html"><b>../REFUGE</b></a></li>
+        <li><a href="index.html"><b>REFUGE</b></a></li>
         <li class="dropdown"> 
             <a href="volumes.html">Volumes</a>
             <ul class="submenu">
@@ -26,10 +33,30 @@
     </ul>
 	</nav>
 
-	<!-- gif maker: https://ezgif.com/maker/ezgif-7-23875f00-gif-equalized -->
-	<img src="assets/coverGif.gif" class="mainGif">
+<div id="pdf-container"></div>
+<script>
+  var url = 'example.pdf';
+  var pdfjsLib = window['pdfjs-dist/build/pdf'];
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.worker.js';
 
-
+  pdfjsLib.getDocument(url).promise.then(function(pdf) {
+    pdf.getPage(1).then(function(page) {
+      var scale = 1.5;
+      var viewport = page.getViewport({ scale: scale });
+      var canvas = document.createElement('canvas');
+      var context = canvas.getContext('2d');
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+      var renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+      page.render(renderContext).promise.then(function() {
+        document.getElementById('pdf-container').appendChild(canvas);
+      });
+    });
+  });
+</script>
 
 </body>
 <html>
