@@ -1,0 +1,821 @@
+body { 
+  font-family: "proxima-nova", sans-serif;
+  color: rgb(0, 120, 191);
+  font-size: 12px;
+}
+
+/* making link not weird after visiting */
+a:link, a:visited {
+  color: rgb(0, 120, 191);
+  text-decoration: none;
+}
+
+a:hover {
+  font-style: italic;
+  color: black;
+}
+
+a:active {
+}
+
+.menu .current {
+  font-weight: bold;
+}
+
+/* General Reset */
+body, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+/* styling for text */
+h2{
+  margin-top: 0px;
+}
+
+/* Apply consistent margin to the entire nav */
+nav {
+  margin: 20px 20px; /* Margin for spacing around the nav */
+  font-size: 14px;
+}
+
+/* zine menu */
+.menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+  align-items: center;
+  width: 100%; /* Make sure it takes up full width */
+}
+
+/* Left Column (REFUGE) */
+.menu-left a {
+  text-align: left;
+  /* Removed padding-left and margin-left */
+}
+
+/* Right Column with Even Spacing */
+.menu-right {
+  display: flex;
+  justify-content: space-between; /* Space out the items evenly across the column */
+  align-items: center;
+}
+
+.menu-right .menu-items {
+  display: flex;
+  justify-content: space-between; /* Evenly space the items horizontally */
+  width: 100%; /* Make sure it fills the entire space of the column */
+}
+
+.menu-right .menu-items li {
+  width: auto; /* Let each item have a natural width */
+}
+
+.menu-right a {
+  text-decoration: none;
+
+}
+
+
+/* Submenu */
+.submenu {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    padding-left: 0px;
+    font-family: "Garamond", serif;
+    background-color: white;
+    font-size: 12px;
+}
+
+
+.volumes-heading {
+    font-weight:bold ;
+}
+
+.submenu .indented {
+    padding-left: 20px; /* Adjust as needed for desired indentation */
+}
+
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Create 4 equal columns */
+  text-align: left; /* Align text to the left */
+  margin: 0px 20px; /* Same margin as your navigation bar */
+  padding: 20px 0px; /* Add vertical padding */
+  gap: 20px;
+}
+
+
+/*homepage*/
+
+#homepageHeading{
+  margin: auto;
+  text-align: center;
+
+}
+
+#mainTitle{
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 100px;
+  margin-bottom: 10px;
+  
+}
+
+#subTitle{
+  font-family: "Garamond", serif;
+  font-size: 12px;
+}
+
+.mainGif{
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: auto;
+
+}
+
+.homeTitle{
+  font-size: 14px;
+}
+
+.homeOptions {
+  margin-top: 80px; /* Adds a vertical space equal to the height of the viewport */
+  padding-top: 50px; /* Adds extra space above the content */
+  margin-left: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap; /* Prevent wrapping for equal halves */
+
+  margin-bottom: 100px;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.homeOptions.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.option {
+  flex: 1; /* Each takes up half the space */
+  max-width: calc(50% - 10px); /* Adjust for margins */
+  text-align: center;
+  padding: 10px;
+}
+
+.option img:hover {
+  opacity: 0.6; /* Subtle hover effect */
+}
+
+.option img {
+  width: 100%; 
+  height: auto;
+  max-width: 400px; /* Adjust this value as needed */
+  object-fit: contain;
+  border: 1px solid lightgrey; 
+  
+}
+
+.homeOptions .option:first-child img {
+  border: 1px solid lightgrey;
+}
+
+
+.homeFooter{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: fixed; 
+  bottom: 0; 
+  left: 0;
+  font-size: 14px;
+
+  padding: 20px; /* Adjust padding to match page margins */
+  box-sizing: border-box; /* Includes padding in width calculation */
+  pointer-events: none;
+
+  background-color: white; /* White background added */
+  z-index: 1000; /* Ensures it stays on top of other content */
+}
+
+.p1,
+.p2{
+  margin: 0;
+  pointer-events: auto;
+
+}
+
+.p2{
+  text-align: right;
+}
+
+/*page stuff*/
+
+
+
+hr{
+    border: 0;                /* remove default border */
+    height: 1px;             /* thin line */
+    background: rgb(0, 120, 191);     /* blue color (use any hex) */
+    margin-bottom: 0;
+}
+
+
+/* general page setup */
+
+.pageHeading {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+/*page top*/
+.pageDescription {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns */
+  margin: 25px 20px 25px 20px; /* Optional, adjust if needed */
+
+}
+
+.paragraph {
+  grid-column: 1 / 3; /* Span the first two columns */
+  padding-right: 10px;
+}
+
+.location {
+  grid-column: 3; /* Place it in the last column */
+}
+
+/* zine.html page */
+/* zine.html page */
+/* zine.html page */
+.zineContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create three equal columns */
+  margin: 20px;
+  margin-bottom: 40px;
+}
+
+.zineItem {
+  text-align: left; /* Ensures the paragraph aligns to the left */
+
+}
+
+.zineItem img:hover{
+  opacity: 0.6;
+}
+
+.zineItem img {
+  display: block;
+  margin: 0 auto; /* Center the image horizontally */
+  max-width: 60%;
+  height: auto; /* Maintain aspect ratio */
+  border: 1px solid lightgrey;
+}
+
+.zineItem p {
+  text-align: left; /* Align the paragraph text to the left */
+  margin-top: 10px; /* Optional: Add spacing between the image and the text */
+}
+
+/* ZINE VIEWER */
+.zineViewer {
+    display: flex;
+    margin: 20px;
+    gap: 20px;
+    position: relative;
+    flex-direction: row;
+}
+
+.zineViewer p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Page Viewer for the rest of the content */
+.pageViewer {
+    flex: 4;
+    display: flex;
+    flex-direction: column; /* Ensures additional elements stack vertically */
+    gap: 20px;
+}
+
+/* top row*/
+.viewerNav {
+    display: flex;
+    gap: 20px;
+}
+
+.viewerNav > p {
+    flex: 1;
+    box-sizing: border-box;
+}
+.viewerNav > p:nth-child(2) {
+    font-weight: bold;
+    text-align: center;
+}
+.viewerNav > p:nth-child(3) {
+    text-align: right;
+}
+.pageNumber p{
+  display: inline-block;
+}
+.viewerNav button {
+  background-color: transparent;
+  border: none;
+  color: rgb(0, 120, 191);
+  cursor: pointer;
+}
+.viewerNav button:hover {
+  text-decoration: underline;
+}
+
+/*2nd title*/
+
+.volTitle {
+  text-align: center;
+}
+.zinePage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.zinePage img {
+  height: 100%;  /* Make all images take up the full height of their container */
+  max-height: 600px; /* Adjust this value to the height you want for consistency */
+  width: auto;  /* Keep the aspect ratio of the images */
+  object-fit: contain;  /* Ensure the image fits inside the container without stretching */
+  border: 1px solid lightgrey;
+  transition: all 0.3s ease;
+  cursor: zoom-in; /* Default cursor when hovering over the image */
+
+}
+.progress-bar-container {
+  width: 25%;               /* Set width to 50% */
+  height: 3px;              /* Progress bar height */
+  background-color: #ddd;   /* Background color */
+  margin-left: auto;        /* Center horizontally */
+  margin-right: auto;       /* Center horizontally */
+  border-radius: 10px;      /* Rounded edges */
+  margin-bottom: 20px;
+
+}
+.progress-bar {
+  height: 100%;
+  background-color: rgb(0, 120, 191);  /* Green color for the progress bar */
+  width: 0%;  /* Starts at 0% width */
+  border-radius: 10px;  /* Rounded edges for the progress bar itself */
+}
+.zineDescription{
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.transcript{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
+.transcript p[data-page-transcript] {
+  display: none;
+}
+.transcript p[data-page-transcript="1"] {
+  display: block;
+}
+
+.solidHorizontalLine2 {
+  height: 1px;
+  width: calc(100% + 40px); /* Extend 20px on both sides */
+  background-color: rgb(0, 120, 191);
+  margin-top: 20px; /* Adjust as needed */
+  margin-left: -20px; /* Counteract parent margin */
+  display: none;
+}
+/* side previews of zine pages */
+.imagesZine {
+  position: relative; /* Required for pseudo-element */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the entire column */
+  gap: 10px;
+}
+.imagesZine::before {
+  content: "";
+  position: absolute;
+  right: 167px; /* Keeps it in the same X position */
+  top: -20px; /* Extends 20px above */
+  height: calc(100% + 40px); /* Extends 20px extra on top and bottom */
+  width: 1px; /* Thickness of the line */
+  background-color:rgb(0, 120, 191); /* Line color */
+}
+.imagesZine img {
+  max-width: 100px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 20px 0;
+  border: 1px solid rgb(211, 211, 211);
+}
+.imagesZine > div:first-child img,
+.imagesZine > div:last-child img {
+    max-height: 80px; /* Adjust this value as needed */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+
+}
+.imagesZine div {
+  cursor: pointer; /* Shows that it's clickable */
+  transition: transform 0.2s ease; /* Smooth hover effect */
+  padding: 5px; /* Add some padding so the hover effect has space */
+  border-radius: 5px; /* Slight rounding for a softer look */
+}
+.imagesZine div:hover {
+
+  transform: scale(1.1); /* Slightly enlarges the div */
+}
+.zineCaption {
+  font-size: 12px; /* Small text */
+  text-align: center; /* Centered under the image */
+}
+.solidHorizontalLineTop, .solidHorizontalLineBottom {
+  height: 1px;
+  background-color:rgb(0, 120, 191);
+}
+
+/*** gallery page */
+
+
+#galleryDescription {
+  display: flex;
+  gap: 100px; /* Space between the two columns */
+  justify-content: center;
+    margin: 70px 20px 40px 20px;
+}
+
+#galleryDescription p {
+  width: 30%;
+  min-width: 300px;
+align-content: center;
+}
+
+#galleryDescription img {
+  width: 80%; /* Make the image take full width of its column */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 400px; /* Optional: limit max width */
+  border: 1px solid lightgrey; /* Optional: add a border */
+}
+
+/* Gallery Container */
+.gallery-container {
+    display: grid; /* Enables the grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid with flexible columns */
+    gap: 100px; /* Space between grid items */
+    margin: 10px; /* Margin around the entire gallery */
+    padding-top: 20px;
+    align-items: end; /* Align items to the bottom */
+}
+
+/* Gallery Item */
+.gallery-item {
+    text-align: left; /* Aligns caption and image to the left */
+    display: flex; /* Enables flexbox for alignment */
+    flex-direction: column; /* Stacks the image and caption vertically */
+    justify-content: flex-end; /* Aligns content to the bottom */
+    height: 250px; /* Ensure consistent grid item height */
+
+    cursor: pointer;
+    position: relative;
+}
+
+/* Images */
+.gallery-item img {
+    height: 100%; 
+    width: auto; 
+    max-width: 100%; 
+    object-fit: contain; /* Ensures the image fits within the container without cropping */
+    align-self: flex-start; 
+    display: block; /* Removes extra whitespace around images */
+
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover img {
+  opacity: 0.6;
+}
+
+
+/* Style captions */
+.caption {
+    margin-top: 5px; /* Space between image and caption */
+}
+
+
+
+.caption strong {
+    font-weight: bold; /* Make "Bikers" bold */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  z-index: 1000;
+  overflow: auto;
+}
+
+.modal.active {
+  display: block;
+}
+
+.close-modal {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  z-index: 1001;
+  font-weight: bold;
+  background: none;
+  border: none;
+  color: rgb(0, 120, 191)
+
+}
+
+.close-modal:hover{
+  color: black;
+  font-style: italic;
+}
+
+.next-image{
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  cursor: pointer;
+  z-index: 1001;
+  font-weight: bold;
+  background-color: white;
+  border: none;
+  color: rgb(0, 120, 191);
+  padding: 5px;
+}
+
+.next-image:hover{
+  color:black;
+  font-style: italic;
+}
+
+.modal-content{
+  max-width: 1400px;
+  margin: 80px auto 40px;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 300px 1fr 200px;
+  gap: 40px;
+  align-items: start;
+}
+.modal h3{
+  font-size: 12px;
+  margin-bottom: -10px;
+}
+
+.modal-main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-image-conatiner{
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.main-image{
+  max-width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+.modal-nav{
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+  margin-top: 10px;
+}
+
+.modal-nav button{
+  background: none;
+  border: none;
+  color: rgb(0, 120, 191) ;
+  cursor: pointer;
+}
+
+.modal-nav button:hover{
+  color: black;
+  font-style: italic;
+}
+
+.thumbnails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.thumbnail-wrapper{
+  text-align: center;
+  cursor: pointer;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: opacity 0.2s ease;
+
+}
+
+.thumbnail:hover{
+  opacity: 0.6;
+}
+
+
+
+
+@media (max-width: 1000px) {
+
+  .homeOptions{
+
+    flex-direction: column;
+
+  }
+
+
+
+  .option{
+    width: 100%;
+
+  max-width: none; /* Adjust for margins */
+  text-align: center;
+  padding: 10px;
+  }
+
+  .option img {
+      max-width: 300px; /* Adjust this value as needed */
+
+  }
+  .zineContainer {
+    grid-template-columns: 1fr; /* Switch to a single column */
+    gap: 10px; /* Adjust spacing between items if needed */
+  }
+
+  .zineItem img {
+    max-width: 80%; /* Ensure images resize properly */
+  }
+
+  .zinePage img {
+    max-width: 100%;  /* Image will scale to fit within its container */
+    height: auto;     /* Maintain aspect ratio */
+  }
+
+  .pageDescription {
+      grid-template-columns: 1fr; /* Switch to a single column layout */
+      gap: 10px; /* Add space between stacked items */
+  }
+
+  .paragraph,
+  .location {
+    grid-column: span 1; /* Ensure each item spans the full width */
+  }
+
+  footer {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+  }
+
+  .zineViewer {
+    flex-direction: column;
+    position: relative;
+
+  }
+
+  .imagesZine {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Prevent vertical scrolling */
+    white-space: nowrap; /* Prevent wrapping */
+    padding-bottom: 10px;
+}
+  .horizontalLine {
+    height: 1px;
+    background-color: rgb(0, 120, 191);
+    margin: 0px;
+    position: absolute; /* Ensure precise positioning */
+    left: -20px; /* Stretch to the edges */
+    right: -20px; /* Stretch to the edges */
+  }
+
+  .imagesZine::before {
+    display: none; /* Hides the vertical line */
+  }
+
+  .solidHorizontalLine2 {
+    display: block; /* Show the horizontal line */
+  }
+
+
+
+#galleryDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between the two columns */
+  align-items: center;
+  margin: 40px auto;
+}
+
+#galleryDescription p {
+  width: 80%;
+  max-width: 700px;
+justify-content: center;
+}
+
+#galleryDescription img {
+  width: 100%; /* Make the image take full width of its column */
+  height: auto; /* Maintain aspect ratio */
+  border: 1px solid lightgrey; /* Optional: add a border */
+}
+
+
+.gallery-container{
+  grid-template-columns: 1fr;
+  gap: 30px ;
+  margin: 20px; 
+}
+
+ .gallery-item {
+    height: auto;               /* 👈 remove fixed height */
+    align-items: center;        /* center contents horizontally */
+  }
+
+  .gallery-item img {
+    width: 100%;                /* 👈 full width image */
+    height: auto;               /* maintain aspect ratio */
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .caption {
+    width: 100%;
+    text-align: left;           /* or center if you prefer */
+  }
+
+
+
+  .modal-content{
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    margin: 60px auto 40px;
+    gap: 20px;
+  }
+
+  .thumbnails{
+    grid-template-columns: repeat(3, 1fr);
+
+  }
+
+  .close-modal, .next-image {
+    top: 15px;
+  }
+
+  .close-modal{
+    right: 15px;
+  }
+  .next-image{
+    left: 8px;
+  }
+}
+
+
+

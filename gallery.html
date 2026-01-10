@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="REFUGE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Refuge: A Collection of Urban Sanctuaries</title>
+    <link rel="stylesheet" type="text/css" href='style.css'>
+    <link rel="icon" href="assets/icon.jpg">
+    <link rel="stylesheet" href="https://use.typekit.net/nyk3meg.css">
+</head>
+<body>
+
+    <nav>
+        <ul class="menu">
+            <li class="menu-left"><a href="index.html"><b>REFUGE</b></a></li>
+            <li class="menu-middle"></li>
+            <li class="menu-right">
+                <ul class="menu-items">
+                    <li class="dropdown">
+                        <a href="zine.html">Zine</a>
+                        <ul class="submenu">
+                            <li class="volumes-heading">Volumes:</li>
+                            <li class="indented"><a href="zinePages/zine1.html">1. Washington Square Park</a></li>
+                            <li class="indented"><a href="zinePages/zine2.html">2. Collect Pond</a></li>
+                            <li class="indented"><a href="zinePages/zine3.html">3. Brooklyn Heights Promenade</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="current" href="gallery.html">Gallery</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="galleryDescription">
+        <p>
+            <span style="font-size: 16px; font-weight: bold;">REFUGE’s</span> gallery showcases photos of NYC green spaces, printed in unique variations using a risograph printer. Hover or click on each image to reveal its different versions. Learn more about the printing process <a style="font-weight: bold;" href="about.html">here</a>. 
+            All images photographed and edited by author unless otherwise attributed.
+        </p>
+
+        <img src="assets/homePage/galleryPic.png" alt="Gallery images">
+    </div>
+
+    <hr>
+
+    <div class="gallery-container">
+      <div class="gallery-item">
+          <img src="assets/gallery/wsp/arch/wsp_arch_all.jpg" alt="Two men riding bikes">
+          <p class="caption"><strong>Washging Square Park Arch</strong><br>(03-03-24)</p>
+      </div>
+      <div class="gallery-item">
+          <img src="assets/gallery/wsp/artStand/wsp_artStand_all_01.jpg" alt="Sample Photo 2">
+          <p class="caption"><strong>Vendors</strong><br>(03-13-24)</p>
+      </div>
+      <div class="gallery-item">
+          <img src="assets/gallery/wsp/walkway/wsp_walkway_all.jpg" alt="Sample Photo 3">
+          <p class="caption"><strong>Park Walkway</strong><br>(03-03-24)</p>
+      </div>
+      <div class="gallery-item">
+          <img src="assets/gallery/collectPond/bike/collectPond_bike_bO_02.jpg" alt="Sample Photo 3">
+          <p class="caption"><strong>Bikers</strong><br>(03-09-24)</p>
+      </div>
+      <div class="gallery-item">
+          <img src="assets/gallery/collectPond/birds/collectPond_birds_allBalanced_01.jpg" alt="Sample Photo 3">
+          <p class="caption"><strong>Pigeons Flying</strong><br>(10-26-24)</p>
+      </div>
+      <div class="gallery-item">
+          <img src="assets/gallery/collectPond/park/collectPond_park_allColor.jpg" alt="Sample Photo 3">
+          <p class="caption"><strong>Collect Pond Park</strong><br>(03-18-24)</p>
+      </div>
+      <div class="gallery-item">
+          <img src="assets/gallery/collectPond/pigeonMan/collectPond_pigeonMan_b+o.jpg" alt="Sample Photo 3">
+          <p class="caption"><strong>Man with Pigeons</strong><br>(03-12-24)</p>
+      </div>
+      <div class="gallery-item">
+          <img src="assets/gallery/wsp/archBirds/wsp_archBirds_all.jpg" alt="Sample Photo 3">
+          <p class="caption"><strong>Birds Flying Around Arch</strong><br>(12-20-22)</p>
+      </div>
+      <div class="gallery-item">
+          <img src="assets/gallery/wsp/flowers/wsp_flowers_p+y.jpg" alt="Sample Photo 3">
+          <p class="caption"><strong>Flowers</strong><br>(2023)</p>
+      </div>
+      
+    </div>
+
+    <div class="modal" id="modal">
+        <button class="next-image" onclick="nextPhoto()">Next Image →</button>
+        <button class="close-modal" onclick="closeModal()">X</button>
+        <div class="modal-content">
+            <div class="modal-info">
+                <div class="info-row">
+                    <h3 class="info-label">Name:</h3>
+                    <p class="info-value" id="photoName"></p>
+                </div>
+                <div class="info-row">
+                    <h3 class="info-label">Location:</h3>
+                    <p class="info-value" id="photoLocation"></p>
+                </div>
+                <div class="info-row">
+                    <h3 class="info-label">Date Taken:</h3>
+                    <p class="info-value" id="photoDate"></p>
+                </div>
+                <div class="info-row">
+                    <h3 class="info-label">Version, Color Layer:</h3>
+                    <p class="info-value" id="photoVersion"></p>
+                </div>
+                <div class="description">
+                    <h3 class="info-label">Description:</h3>
+                    <p id="photoDescription"></p>
+                    <a href="#" id="volumeLink" class="volume-link">See the rest of the volume →</a>
+                </div>
+            </div>
+
+            <div class="modal-main">
+                <div class="main-image-container">
+                    <img id="mainImage" class="main-image" src="" alt="">
+                </div>
+                <div class="modal-nav">
+                    <button onclick="previousVersion()">← Previous</button>
+                    <span></span>
+                    <button onclick="nextVersion()">Next →</button>
+                </div>
+            </div>
+            <div class="thumbnails" id="thumbnails"></div>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <footer>
+        <div>
+            <h3>Additional Info</h3>
+            <p><a target="_blank" href="https://swampvermin.github.io/seniorDesignProjectBlog/index.html">Process Site</a></p>
+            <p><a target="_blank" href="https://refuge.odie.us">Project Book</a></p>
+            <p><a target="_blank" href="https://refugesources.odie.us">Sources</a></p>
+            <p><a target="_blank" href="https://engineering.nyu.edu/academics/programs/integrated-design-media-bs">NYU IDM Department</a></p>
+        </div>
+        <div>
+            <h3>Resources</h3>
+            <p><a target="_blank" href="https://youtu.be/dscRPoOFclU?si=e7j-fnoPRU4MuvVj">How to make a zine~</a></p>
+            <p><a target="_blank" href="https://www.youtube.com/watch?v=UrFq5KliP04&list=PLlN9Nflw98O9vOsdg8PkYY4sfoXdLNIr9">Risograph tutorials</a></p>
+            <p><a target="_blank" href="https://antiboredom.github.io/p5.riso/">p5.Riso</a></p>
+            <p><a target="_blank" href="https://www.nycgovparks.org">NYC Parks</a></p>
+        </div>
+        <div>
+            <h3>Contact</h3>
+        <!--    <p><a href="araceligr.com">My Portfolio</a></p>--> 
+            <p><a target="_blank" href="https://www.linkedin.com/in/araceli-gr/">LinkedIn</a></p>
+            <p><a href="mailto:ag7769@nyu.edu?subject=Hello Araceli&body=I’d like to get in touch with you!">Email: ag7769@nyu.edu</a></p>
+        </div>
+        <div>
+            <h3>REFUGE</h3>
+            <p>© Araceli 2024 <3</p>
+        </div>
+    </footer>
+
+    <script>
+        const photos = [
+    {
+        name: "Washington Square Park Arch",
+        location: "Washington Square Park",
+        dateTaken: "03-03-24",
+        description: "The famous Washington Square Park arch",
+        volumeLink: "zinePages/zine1.html",
+        versions: [
+            { id: "01", label: "blue + yellow + pink", url: "assets/gallery/wsp/arch/wsp_arch_all.jpg" },
+            { id: "02", label: "blue + 2 yellow", url: "assets/gallery/wsp/arch/wsp_arch_allY.jpg" },
+            { id: "03", label: "blue", url: "assets/gallery/wsp/arch/wsp_arch_b.jpg" },
+            { id: "04", label: "pink", url: "assets/gallery/wsp/arch/wsp_arch_p.jpg" },
+            { id: "05", label: "pink + yellow", url: "assets/gallery/wsp/arch/wsp_arch_p+y.jpg" },
+            { id: "06", label: "yellow", url: "assets/gallery/wsp/arch/wsp_arch_Y.jpg" }
+        ]
+    },
+    {
+        name: "Vendors",
+        location: "Washington Square Park",
+        dateTaken: "03-13-24",
+        description: "Street vendors selling artwork and crafts",
+        volumeLink: "zinePages/zine1.html",
+        versions: [
+            { id: "01", label: "blue + yellow + pink", url: "assets/gallery/wsp/artStand/wsp_artStand_all_01.jpg" },
+            { id: "02", label: "blue", url: "assets/gallery/wsp/artStand/wsp_artStand_b_01.jpg" },
+            { id: "03", label: "pink", url: "assets/gallery/wsp/artStand/wsp_artStand_p_01.jpg" },
+            { id: "04", label: "yellow", url: "assets/gallery/wsp/artStand/collectPond_wsp_yellow copy.jpg" },
+        ]
+    },
+    {
+        name: "Park Walkway",
+        location: "Washington Square Park",
+        dateTaken: "03-03-24",
+        description: "Busy walkway in the park",
+        volumeLink: "zinePages/zine1.html",
+        versions: [
+            { id: "01", label: "orange + pink + blue + yellow", url: "assets/gallery/wsp/walkway/wsp_walkway_all.jpg" },
+            { id: "02", label: "blue", url: "assets/gallery/wsp/walkway/wsp_walkway_b.jpg" },
+            { id: "03", label: "pink", url: "assets/gallery/wsp/walkway/wsp_walkway_p.jpg" },
+            { id: "04", label: "pink + blue", url: "assets/gallery/wsp/walkway/wsp_walkway_b+p.jpg" },
+            { id: "05", label: "yellow", url: "assets/gallery/wsp/walkway/wsp_walkway_y.jpg" }
+
+        ]
+    },
+    {
+        name: "Bikers",
+        location: "Collect Pond",
+        dateTaken: "03-09-24",
+        description: "Two men riding their bikes on walkway that goes above the pond",
+        volumeLink: "zinePages/zine2.html",
+        versions: [
+            { id: "01", label: "blue + orange", url: "assets/gallery/collectPond/bike/collectPond_bike_bO_02.jpg" },
+            { id: "02", label: "blue", url: "assets/gallery/collectPond/bike/collectPond_bike_b_02.jpg" },
+            { id: "03", label: "orange", url: "assets/gallery/collectPond/bike/collectPond_bike_o_02.jpg" }
+        ]
+    },
+    {
+        name: "Pigeons Flying",
+        location: "Collect Pond",
+        dateTaken: "10-26-24",
+        description: "Pigeons flying on east side of Collect Pond Park",
+        volumeLink: "zinePages/zine2.html",
+        versions: [
+            { id: "01", label: "blue + orange + yellow", url: "assets/gallery/collectPond/birds/collectPond_birds_allBalanced_01.jpg" },
+            { id: "02", label: "blue + orange + 2 yellow", url: "assets/gallery/collectPond/birds/collectPond_birds_allY_01.jpg" },
+            { id: "03", label: "blue", url: "assets/gallery/collectPond/birds/collectPond_birds_b_01.jpg" },
+            { id: "04", label: "orange", url: "assets/gallery/collectPond/birds/collectPond_orange_01.jpg" },
+            { id: "05", label: "yellow", url: "assets/gallery/collectPond/birds/collectPond_wsp_yellow.jpg" }
+
+        ]
+    },
+    {
+        name: "Collect Pond Park",
+        location: "Collect Pond",
+        dateTaken: "03-18-24",
+        description: "Collect Ponk Park during the evening",
+        volumeLink: "zinePages/zine2.html",
+        versions: [
+            { id: "01", label: "pink + blue + yellow", url: "assets/gallery/collectPond/park/collectPond_park_allColor.jpg" },
+            { id: "02", label: "2 pink + blue + yellow", url: "assets/gallery/collectPond/park/collectPond_park_all+P.jpg" },
+            { id: "03", label: "2 blue + yellow", url: "assets/gallery/collectPond/park/collectPond_park_b+y.jpg" },
+            { id: "04", label: "blue", url: "assets/gallery/collectPond/park/collectPond_park_b.jpg" },
+            { id: "05", label: "pink", url: "assets/gallery/collectPond/park/collectPond_park_p.jpg" },
+            { id: "06", label: "yellow", url: "assets/gallery/collectPond/park/collectPond_park_y.jpg" },
+            { id: "07", label: "pink + yellow", url: "assets/gallery/collectPond/park/collectPond_park_p+y.jpg" },
+        ]
+    },
+    {
+        name: "Man with Pigeons",
+        location: "Collect Pond",
+        dateTaken: "04-16-24",
+        description: "Man feeding pigeons",
+        volumeLink: "zinePages/zine2.html",
+        versions: [
+            { id: "01", label: "blue + orange", url: "assets/gallery/collectPond/pigeonMan/collectPond_pigeonMan_b+o.jpg" },
+            { id: "02", label: "blue", url: "assets/gallery/collectPond/pigeonMan/collectPond_pigeonMan_b.jpg" },
+            { id: "03", label: "orange", url: "assets/gallery/collectPond/pigeonMan/collectPond_pigeonMan_o.jpg" }
+        ]
+    },
+    {
+        name: "Washington Square Park Arch",
+        location: "Washington Square Park",
+        dateTaken: "04-16-24",
+        description: "Birds circle the arch",
+        volumeLink: "zinePages/zine1.html",
+        versions: [
+            { id: "01", label: "blue + pink + yellow", url: "assets/gallery/wsp/archBirds/wsp_archBirds_all.jpg" },
+            { id: "02", label: "blue + yellow", url: "assets/gallery/wsp/archBirds/wsp_archBirds_b+y.jpg" },
+            { id: "03", label: "blue", url: "assets/gallery/wsp/archBirds/wsp_archBirds_b.jpg" },
+            { id: "04", label: "pink", url: "assets/gallery/wsp/archBirds/wsp_archBirds_p.jpg" },
+            { id: "05", label: "yellow", url: "assets/gallery/wsp/archBirds/wsp_archBirds_y.jpg" },
+            { id: "06", label: "pink + yellow", url: "assets/gallery/wsp/archBirds/wsp_archBirds_p+y.jpg" }
+        ]
+    },
+    {
+        name: "Flowers",
+        location: "Washington Square Park",
+        dateTaken: "2023",
+        description: "Tulips",
+        volumeLink: "zinePages/zine1.html",
+        versions: [
+            { id: "01", label: "pink + yellow", url: "assets/gallery/wsp/flowers/wsp_flowers_p+y.jpg" },
+            { id: "02", label: "pink", url: "assets/gallery/wsp/flowers/wsp_flowers_p.jpg" },
+            { id: "03", label: "yellow", url: "assets/gallery/wsp/flowers/wsp_flowers_y.jpg" }
+        ]
+    }
+];
+
+let currentPhotoIndex = 0;
+let currentVersionIndex = 0;
+let slideshowIntervals = [];
+
+// Initialize gallery with click handlers
+function initGallery() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    galleryItems.forEach((item, index) => {
+        // Make gallery items clickable
+        item.style.cursor = 'pointer';
+        item.onclick = () => openModal(index);
+        
+        const photo = photos[index];
+        const img = item.querySelector('img');
+        
+        if (photo.versions.length > 1) {
+            
+            // Start slideshow for multi-version photos
+            let versionIndex = 0;
+            const interval = setInterval(() => {
+                versionIndex = (versionIndex + 1) % photo.versions.length;
+                img.src = photo.versions[versionIndex].url;
+            }, 2000);
+            slideshowIntervals.push(interval);
+        }
+    });
+}
+
+function openModal(photoIndex) {
+    currentPhotoIndex = photoIndex;
+    currentVersionIndex = 0;
+    const modal = document.getElementById('modal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    updateModal();
+}
+
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function nextPhoto() {
+    currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+    currentVersionIndex = 0;
+    updateModal();
+}
+
+function nextVersion() {
+    const photo = photos[currentPhotoIndex];
+    currentVersionIndex = (currentVersionIndex + 1) % photo.versions.length;
+    updateModal();
+}
+
+function previousVersion() {
+    const photo = photos[currentPhotoIndex];
+    currentVersionIndex = (currentVersionIndex - 1 + photo.versions.length) % photo.versions.length;
+    updateModal();
+}
+
+function updateModal() {
+    const photo = photos[currentPhotoIndex];
+    const version = photo.versions[currentVersionIndex];
+    
+    // Update main image
+    document.getElementById('mainImage').src = version.url;
+    
+    // Update info panel
+    document.getElementById('photoName').textContent = photo.name;
+    document.getElementById('photoLocation').textContent = photo.location;
+    document.getElementById('photoDate').textContent = photo.dateTaken;
+    document.getElementById('photoVersion').textContent = `${version.id}, ${version.label}`;
+    document.getElementById('photoDescription').textContent = photo.description;
+    document.getElementById('volumeLink').href = photo.volumeLink;
+    
+    // Update thumbnails
+    const thumbnails = document.getElementById('thumbnails');
+    thumbnails.innerHTML = '';
+    photo.versions.forEach((v, index) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'thumbnail-wrapper';
+        wrapper.onclick = () => {
+            currentVersionIndex = index;
+            updateModal();
+        };
+        
+        const thumb = document.createElement('img');
+        thumb.src = v.url;
+        thumb.className = 'thumbnail';
+        
+        const label = document.createElement('div');
+        label.className = 'thumbnail-label';
+        label.textContent = v.id;
+        
+        wrapper.appendChild(thumb);
+        wrapper.appendChild(label);
+        thumbnails.appendChild(wrapper);
+    });
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+// Initialize gallery when page loads
+document.addEventListener('DOMContentLoaded', initGallery);
+        
+
+    </script>
+
+
+</body>
+<html>

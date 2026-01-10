@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/icon.jpg">
+    
+    <title>Refuge: A Collection of Urban Sanctuaries</title>
+    <meta name="description" content="Zine and gallery installation showcasing peaceful urban sanctuaries in NYC. Designed by Araceli Gonzalez-Rocha for NYU IDM Thesis Project in 2024.">
+
+    <link rel="stylesheet" type="text/css" href='style.css'>
+    <link rel="stylesheet" href="https://use.typekit.net/nyk3meg.css">
+
+</head>
+<body>
+
+    <nav>
+        <ul class="menu">
+            <li class="menu-left"><a href="index.html"><b>REFUGE</b></a></li>
+            <li class="menu-middle"></li>
+            <li class="menu-right">
+                <ul class="menu-items">
+                    <li class="dropdown">
+                        <a href="zine.html">Zine</a>
+                        <ul class="submenu">
+                            <li class="volumes-heading">Volumes:</li>
+                            <li class="indented"><a href="zinePages/zine1.html">1. Washington Square Park</a></li>
+                            <li class="indented"><a href="zinePages/zine2.html">2. Collect Pond</a></li>
+                            <li class="indented"><a href="zinePages/zine3.html">3. Brooklyn Heights Promenade</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+	<div id="homepageHeading">
+		<p id="mainTitle">REFUGE</p>
+		<p id="subTitle">A Collection of Urban Sanctuaries</p>
+	</div>
+
+	<!-- gif maker: https://ezgif.com/maker/ezgif-7-23875f00-gif-equalized -->
+	<img src="assets/homePage/homepage.gif" class="mainGif">
+
+	<div class="homeFooter">
+        <p class="p1">© Araceli 2024</p>
+        <p class="p2" id="clock">00:00:00 PM in NYC</p>
+    </div>
+
+    <div class="homeOptions">
+        <a href="zine.html" class="option">
+            <p class="homeTitle">Zine Collection</p>
+            <img src="assets/homePage/covers.gif">
+        </a>
+
+        <a href="gallery.html" class="option">
+            <p class="homeTitle">Gallery Installation</p>
+            <img src="assets/homePage/galleryPic.png"> 
+        </a>
+    </div>
+
+    <hr>
+
+    <footer>
+        <div>
+            <h3>Additional Info</h3>
+            <p><a target="_blank" href="https://swampvermin.github.io/seniorDesignProjectBlog/index.html">Process Site</a></p>
+            <p><a target="_blank" href="https://refuge.odie.us">Project Book</a></p>
+            <p><a target="_blank" href="https://refugesources.odie.us">Sources</a></p>
+            <p><a target="_blank" href="https://engineering.nyu.edu/academics/programs/integrated-design-media-bs">NYU IDM Department</a></p>
+        </div>
+        <div>
+            <h3>Resources</h3>
+            <p><a target="_blank" href="https://youtu.be/dscRPoOFclU?si=e7j-fnoPRU4MuvVj">How to make a zine~</a></p>
+            <p><a target="_blank" href="https://www.youtube.com/watch?v=UrFq5KliP04&list=PLlN9Nflw98O9vOsdg8PkYY4sfoXdLNIr9">Risograph tutorials</a></p>
+            <p><a target="_blank" href="https://antiboredom.github.io/p5.riso/">p5.Riso</a></p>
+            <p><a target="_blank" href="https://www.nycgovparks.org">NYC Parks</a></p>
+        </div>
+        <div>
+            <h3>Contact</h3>
+        <!--    <p><a href="araceligr.com">My Portfolio</a></p>--> 
+            <p><a target="_blank" href="https://www.linkedin.com/in/araceli-gr/">LinkedIn</a></p>
+            <p><a href="mailto:ag7769@nyu.edu?subject=Hello Araceli&body=I’d like to get in touch with you!">Email: ag7769@nyu.edu</a></p>
+        </div>
+        <div>
+            <h3>REFUGE</h3>
+            <p>© Araceli 2024 <3</p>
+        </div>
+    </footer>
+
+
+    <script>
+        window.addEventListener("scroll", () => {
+    const homeOptions = document.querySelector(".homeOptions");
+    if (homeOptions.getBoundingClientRect().top < window.innerHeight * 0.8) {
+      homeOptions.classList.add("show");
+    }
+  });
+  
+
+function updateClock() {
+    const now = new Date();
+
+    // Format the time in NYC's timezone
+    const options = {
+        timeZone: 'America/New_York',
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    };
+
+    const formatter = new Intl.DateTimeFormat([], options);
+    const formattedTime = formatter.format(now) + ' in NYC';
+
+    document.getElementById('clock').textContent = formattedTime;
+}
+
+// Update every second
+setInterval(updateClock, 1000);
+updateClock();
+
+
+    </script>
+
+</body>
+<html>
