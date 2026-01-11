@@ -256,7 +256,6 @@ hr{
 
 .location {
   grid-column: 3; /* Place it in the last column */
-
  min-width: 0;         /* allow content to shrink */
     width: 100%;          /* fill column but remain responsive */
     max-width: 100%;      /* prevent overflow */
